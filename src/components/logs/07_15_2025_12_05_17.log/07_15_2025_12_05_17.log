@@ -1,0 +1,14 @@
+[ 2025-07-15 12:05:18,852 ] 44 root - INFO - Entered the data ingestion method/component
+[ 2025-07-15 12:05:19,131 ] 51 root - INFO - Read the dataset as dataframe
+[ 2025-07-15 12:05:19,931 ] 60 root - INFO - Train-test split initiated
+[ 2025-07-15 12:05:20,950 ] 72 root - INFO - Ingestion of the data is completed
+[ 2025-07-15 12:05:21,357 ] 97 root - INFO - Read train and test data completed
+[ 2025-07-15 12:05:21,392 ] 117 root - INFO - Obtaining preprocessing object
+[ 2025-07-15 12:05:21,392 ] 74 root - INFO - Categorical columns: ['hotel', 'arrival_date_year', 'arrival_date_month', 'meal', 'country', 'market_segment', 'distribution_channel', 'reserved_room_type', 'assigned_room_type', 'deposit_type', 'customer_type', 'reservation_status']
+[ 2025-07-15 12:05:21,393 ] 75 root - INFO - Numerical columns: ['lead_time', 'arrival_date_year', 'arrival_date_week_number', 'arrival_date_day_of_month', 'stays_in_weekend_nights', 'adults', 'children', 'babies', 'is_repeated_guest', 'previous_cancellations', 'booking_changes', 'agent', 'days_in_waiting_list', 'adr', 'required_car_parking_spaces', 'total_of_special_requests']
+[ 2025-07-15 12:05:21,393 ] 120 root - INFO - Applying preprocessing object on training and testing dataframes.
+[ 2025-07-15 12:05:22,542 ] 132 root - INFO - Saved preprocessing object.
+[ 2025-07-15 12:05:22,569 ] 33 root - INFO - Split training and test input data
+[ 2025-07-15 12:05:22,569 ] 40 root - INFO - models
+[ 2025-07-15 12:05:22,570 ] 50 root - INFO - models1
+[ 2025-07-15 12:05:22,570 ] 106 root - INFO - models completed

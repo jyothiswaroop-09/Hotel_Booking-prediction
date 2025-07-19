@@ -13,6 +13,8 @@ Requires-Dist: xgboost
 Requires-Dist: scikit-learn
 Requires-Dist: joblib
 Requires-Dist: streamlit
+Requires-Dist: flask
+Requires-Dist: imbalanced-learn
 Dynamic: author
 Dynamic: author-email
 Dynamic: requires-dist

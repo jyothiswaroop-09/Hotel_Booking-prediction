@@ -1,0 +1,25 @@
+[ 2025-07-19 12:31:36,207 ] 44 root - INFO - Entered the data ingestion method/component
+[ 2025-07-19 12:31:36,490 ] 51 root - INFO - Read the dataset as dataframe
+[ 2025-07-19 12:31:37,403 ] 60 root - INFO - Train-test split initiated
+[ 2025-07-19 12:31:38,341 ] 72 root - INFO - Ingestion of the data is completed
+[ 2025-07-19 12:31:38,665 ] 90 root - INFO - Read train and test data completed
+[ 2025-07-19 12:31:38,687 ] 106 root - INFO - remove outliers
+[ 2025-07-19 12:31:38,935 ] 125 root - INFO - Obtaining preprocessing object
+[ 2025-07-19 12:31:38,935 ] 70 root - INFO - Categorical columns: ['hotel', 'arrival_date_year', 'arrival_date_month', 'meal', 'country', 'market_segment', 'distribution_channel', 'reserved_room_type', 'assigned_room_type', 'deposit_type', 'customer_type', 'reservation_status']
+[ 2025-07-19 12:31:38,936 ] 71 root - INFO - Numerical columns: ['lead_time', 'arrival_date_year', 'arrival_date_week_number', 'arrival_date_day_of_month', 'stays_in_weekend_nights', 'adults', 'children', 'babies', 'is_repeated_guest', 'previous_cancellations', 'booking_changes', 'agent', 'days_in_waiting_list', 'adr', 'required_car_parking_spaces', 'total_of_special_requests']
+[ 2025-07-19 12:31:38,936 ] 128 root - INFO - Applying preprocessing object on training and testing dataframes.
+[ 2025-07-19 12:31:40,175 ] 142 root - INFO - QQ plot saved: artifacts\qqplot_feature_0.png
+[ 2025-07-19 12:31:40,397 ] 142 root - INFO - QQ plot saved: artifacts\qqplot_feature_1.png
+[ 2025-07-19 12:31:40,601 ] 142 root - INFO - QQ plot saved: artifacts\qqplot_feature_2.png
+[ 2025-07-19 12:31:40,602 ] 145 root - INFO - Applying SMOTE on the training data.
+[ 2025-07-19 12:31:44,660 ] 151 root - INFO - Original training data shape: (40928, 223), (40928,)
+[ 2025-07-19 12:31:44,661 ] 152 root - INFO - Resampled training data shape: (49820, 223), (49820,)
+[ 2025-07-19 12:31:44,697 ] 160 root - INFO - Saved preprocessing object.
+[ 2025-07-19 12:31:44,717 ] 33 root - INFO - Split training and test input data
+[ 2025-07-19 12:31:44,718 ] 40 root - INFO - models
+[ 2025-07-19 12:31:44,718 ] 50 root - INFO - models1
+[ 2025-07-19 12:31:44,718 ] 90 root - INFO - models completed
+[ 2025-07-19 12:33:40,655 ] 93 root - INFO - models3
+[ 2025-07-19 12:33:40,656 ] 96 root - INFO - models4
+[ 2025-07-19 12:33:40,659 ] 105 root - INFO - best_model: RandomForestClassifier(max_depth=10, random_state=42)
+[ 2025-07-19 12:33:40,659 ] 109 root - INFO - Best found model on both training and testing dataset

@@ -1,0 +1,192 @@
+<html>
+  <body>
+    <div class="login">
+      <h1>Hotel Booking Cancellation Predictor</h1>
+
+      <form action="{{ url_for('predict_datapoint') }}" method="post">
+        <h1>
+          <legend>Enter Booking Information</legend>
+        </h1>
+
+        <!-- Example Numeric Inputs -->
+        <div class="mb-3">
+          <label class="form-label">Lead Time</label>
+          <input class="form-control" type="number" name="lead_time" placeholder="Lead time in days" required />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Arrival Year</label>
+          <input class="form-control" type="number" name="arrival_date_year" placeholder="e.g., 2021" required />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Arrival Week Number</label>
+          <input class="form-control" type="number" name="arrival_date_week_number" min="1" max="53" required />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Arrival Day of Month</label>
+          <input class="form-control" type="number" name="arrival_date_day_of_month" min="1" max="31" required />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Stays in Weekend Nights</label>
+          <input class="form-control" type="number" name="stays_in_weekend_nights" required />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Number of Adults</label>
+          <input class="form-control" type="number" name="adults" min="1" required />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Number of Children</label>
+          <input class="form-control" type="number" name="children" min="0" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Number of Babies</label>
+          <input class="form-control" type="number" name="babies" min="0" />
+        </div>
+
+        <!-- Dropdown Fields -->
+        <div class="mb-3">
+          <label class="form-label">Is Repeated Guest</label>
+          <select class="form-control" name="is_repeated_guest" required>
+            <option selected disabled value="">Select</option>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Previous Cancellations</label>
+          <input class="form-control" type="number" name="previous_cancellations" required />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Booking Changes</label>
+          <input class="form-control" type="number" name="booking_changes" required />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Agent</label>
+          <input class="form-control" type="text" name="agent" placeholder="Agent ID" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Days in Waiting List</label>
+          <input class="form-control" type="number" name="days_in_waiting_list" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">ADR (Average Daily Rate)</label>
+          <input class="form-control" type="number" step="0.01" name="adr" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Required Car Parking Spaces</label>
+          <input class="form-control" type="number" name="required_car_parking_spaces" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Total Special Requests</label>
+          <input class="form-control" type="number" name="total_of_special_requests" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Hotel Type</label>
+          <select class="form-control" name="hotel" required>
+            <option selected disabled value="">Select Hotel</option>
+            <option value="City Hotel">City Hotel</option>
+            <option value="Resort Hotel">Resort Hotel</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Arrival Month</label>
+          <select class="form-control" name="arrival_date_month" required>
+            <option selected disabled value="">Select Month</option>
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="March">March</option>
+            <!-- Add remaining months -->
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Meal Type</label>
+          <select class="form-control" name="meal" required>
+            <option selected disabled value="">Select Meal</option>
+            <option value="BB">BB</option>
+            <option value="HB">HB</option>
+            <option value="FB">FB</option>
+            <option value="SC">SC</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Country</label>
+          <input class="form-control" type="text" name="country" placeholder="e.g., PRT, USA" required />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Market Segment</label>
+          <input class="form-control" type="text" name="market_segment" required />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Distribution Channel</label>
+          <input class="form-control" type="text" name="distribution_channel" required />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Reserved Room Type</label>
+          <input class="form-control" type="text" name="reserved_room_type" required />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Assigned Room Type</label>
+          <input class="form-control" type="text" name="assigned_room_type" required />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Deposit Type</label>
+          <select class="form-control" name="deposit_type" required>
+            <option selected disabled value="">Select Deposit Type</option>
+            <option value="No Deposit">No Deposit</option>
+            <option value="Non Refund">Non Refund</option>
+            <option value="Refundable">Refundable</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Customer Type</label>
+          <select class="form-control" name="customer_type" required>
+            <option selected disabled value="">Select Customer Type</option>
+            <option value="Transient">Transient</option>
+            <option value="Contract">Contract</option>
+            <option value="Transient-Party">Transient-Party</option>
+            <option value="Group">Group</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Reservation Status</label>
+          <select class="form-control" name="reservation_status" required>
+            <option selected disabled value="">Select Status</option>
+            <option value="Check-Out">Check-Out</option>
+            <option value="Canceled">Canceled</option>
+            <option value="No-Show">No-Show</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <input class="btn btn-primary" type="submit" value="Predict Cancellation" />
+        </div>
+      </form>
+
+      <h2>is_Canceled: {{ results }}</h2>
+    </div>
+  </body>
+</html>

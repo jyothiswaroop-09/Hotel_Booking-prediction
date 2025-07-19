@@ -1,0 +1,21 @@
+[ 2025-07-18 12:03:10,233 ] 44 root - INFO - Entered the data ingestion method/component
+[ 2025-07-18 12:03:10,613 ] 51 root - INFO - Read the dataset as dataframe
+[ 2025-07-18 12:03:11,496 ] 60 root - INFO - Train-test split initiated
+[ 2025-07-18 12:03:12,365 ] 72 root - INFO - Ingestion of the data is completed
+[ 2025-07-18 12:03:12,711 ] 90 root - INFO - Read train and test data completed
+[ 2025-07-18 12:03:12,763 ] 104 root - INFO - Obtaining preprocessing object
+[ 2025-07-18 12:03:12,763 ] 70 root - INFO - Categorical columns: ['hotel', 'arrival_date_year', 'arrival_date_month', 'meal', 'country', 'market_segment', 'distribution_channel', 'reserved_room_type', 'assigned_room_type', 'deposit_type', 'customer_type', 'reservation_status']
+[ 2025-07-18 12:03:12,763 ] 71 root - INFO - Numerical columns: ['lead_time', 'arrival_date_year', 'arrival_date_week_number', 'arrival_date_day_of_month', 'stays_in_weekend_nights', 'adults', 'children', 'babies', 'is_repeated_guest', 'previous_cancellations', 'booking_changes', 'agent', 'days_in_waiting_list', 'adr', 'required_car_parking_spaces', 'total_of_special_requests']
+[ 2025-07-18 12:03:12,764 ] 107 root - INFO - Applying preprocessing object on training and testing dataframes.
+[ 2025-07-18 12:03:14,049 ] 114 root - INFO - Applying SMOTE on the training data.
+[ 2025-07-18 12:03:25,903 ] 120 root - INFO - Original training data shape: (95512, 256), (95512,)
+[ 2025-07-18 12:03:25,903 ] 121 root - INFO - Resampled training data shape: (120518, 256), (120518,)
+[ 2025-07-18 12:03:25,999 ] 129 root - INFO - Saved preprocessing object.
+[ 2025-07-18 12:03:26,060 ] 33 root - INFO - Split training and test input data
+[ 2025-07-18 12:03:26,061 ] 40 root - INFO - models
+[ 2025-07-18 12:03:26,063 ] 50 root - INFO - models1
+[ 2025-07-18 12:03:26,063 ] 90 root - INFO - models completed
+[ 2025-07-18 12:09:17,445 ] 93 root - INFO - models3
+[ 2025-07-18 12:09:17,445 ] 96 root - INFO - models4
+[ 2025-07-18 12:09:17,462 ] 105 root - INFO - best_model: RandomForestClassifier(max_depth=10, random_state=42)
+[ 2025-07-18 12:09:17,462 ] 109 root - INFO - Best found model on both training and testing dataset
