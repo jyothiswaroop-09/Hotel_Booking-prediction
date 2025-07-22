@@ -41,9 +41,10 @@ class DataTransformation:
         for both numerical and categorical columns.
         '''
         try:
-            numerical_columns = ["lead_time","arrival_date_year","arrival_date_week_number","arrival_date_day_of_month",
-                                 "stays_in_weekend_nights","adults","children","babies","is_repeated_guest","previous_cancellations","booking_changes","agent","days_in_waiting_list",
-                                 "adr","required_car_parking_spaces","total_of_special_requests"]
+            numerical_columns = ["lead_time","arrival_date_year","arrival_date_day_of_month",
+                                 "stays_in_weekend_nights","adults","total_kids","is_repeated_guest",
+                                 "previous_cancellations","agent","days_in_waiting_list",
+                                 "adr","required_car_parking_spaces"]
             categorical_columns = [
                 "hotel","arrival_date_year",
                 "arrival_date_month",
@@ -89,9 +90,22 @@ class DataTransformation:
 
             logging.info("Read train and test data completed")
             
-            cols_to_drop = ["previous_bookings_not_canceled", "company","reservation_status_date"]
-            train_df.drop(columns=cols_to_drop, inplace=True, errors='ignore')
-            test_df.drop(columns=cols_to_drop, inplace=True, errors='ignore')
+            # Combine children and babies into total_kids
+            train_df["total_kids"] = train_df["children"] + train_df["babies"]
+            test_df["total_kids"] = test_df["children"] + test_df["babies"]
+            
+            # # ✅ Check if total_kids was added properly
+            # print("Train Columns:", train_df.columns)
+            # print("Test Columns:", test_df.columns)
+            # print(train_df[["children", "babies", "total_kids"]].head())
+            # print(test_df[["children", "babies", "total_kids"]].head())
+
+            cols_to_drop = ["previous_bookings_not_canceled", "company","reservation_status_date","total_of_special_requests"
+                            ,"arrival_date_week_number","booking_changes","children","babies"]
+            train_df.drop(columns=cols_to_drop,axis=1, inplace=True, errors='ignore')
+            test_df.drop(columns=cols_to_drop,axis=1, inplace=True, errors='ignore')
+            
+            logging.info(" drop done")
             
              # Handle outliers using IQR method before transformation
             def remove_outliers_iqr(df, numerical_columns):
@@ -103,11 +117,11 @@ class DataTransformation:
                     upper_bound = Q3 + 1.5 * IQR
                     df = df[(df[col] >= lower_bound) & (df[col] <= upper_bound)]
                 return df
-            logging.info("remove outliers")
+            logging.info("remove outliers") ## added new
             
-            numerical_columns = ["lead_time","arrival_date_year","arrival_date_week_number","arrival_date_day_of_month",
-                                 "stays_in_weekend_nights","adults","children","babies","is_repeated_guest","previous_cancellations","booking_changes","agent","days_in_waiting_list",
-                                 "adr","required_car_parking_spaces","total_of_special_requests"]
+            numerical_columns = ["lead_time","arrival_date_year","arrival_date_day_of_month","stays_in_weekend_nights","adults",
+                                 "total_kids","is_repeated_guest","previous_cancellations","agent","days_in_waiting_list",
+                                 "adr","required_car_parking_spaces"]
             # categorical_columns = [
             #     "hotel","arrival_date_year",
             #     "arrival_date_month",
@@ -146,7 +160,7 @@ class DataTransformation:
                     title=f"QQ Plot - Feature {i}",
                     save_path=plot_path
                 )
-                logging.info(f"QQ plot saved: {plot_path}")
+                logging.info(f"QQ plot saved: {plot_path}") ## added new
 
             # --- SMOTE Integration ---
             logging.info("Applying SMOTE on the training data.")

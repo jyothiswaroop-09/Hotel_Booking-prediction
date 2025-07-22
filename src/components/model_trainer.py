@@ -47,7 +47,7 @@ class ModelTrainer:
                 "CatBoosting Classifier": CatBoostClassifier(verbose=False,random_state=42),
                 "AdaBoost Classifier": AdaBoostClassifier(random_state=42),
             }
-            logging.info("models1")
+            logging.info("models processing")
             param = {
                 "Random Forest": {
                 'n_estimators': [100],
@@ -90,10 +90,10 @@ class ModelTrainer:
             logging.info("models completed")
 
             model_report:dict=evaluate_models(X_train,y_train,X_test,y_test,models,param)
-            logging.info("models3")
+           
             ## To get best model score from dict
             best_model_score = max(model_report.values())
-            logging.info("models4")
+            
             ## To get best model name from dict
 
             # best_model_name = list(model_report.keys())[
