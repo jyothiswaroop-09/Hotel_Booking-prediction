@@ -69,12 +69,12 @@ class CustomData:
         meal: str,
         country: str,
         market_segment: str,
-        distribution_channel: str,
+        # distribution_channel: str,
         reserved_room_type: str,
         assigned_room_type: str,
         deposit_type: str,
         customer_type: str,
-        reservation_status: str
+        # reservation_status: str
     ):
 
         self.lead_time = lead_time
@@ -98,12 +98,12 @@ class CustomData:
         self.meal = meal
         self.country = country
         self.market_segment = market_segment
-        self.distribution_channel = distribution_channel
+        # self.distribution_channel = distribution_channel
         self.reserved_room_type = reserved_room_type
         self.assigned_room_type = assigned_room_type
         self.deposit_type = deposit_type
         self.customer_type = customer_type
-        self.reservation_status = reservation_status
+        # self.reservation_status = reservation_status
 
 
     def get_data_as_data_frame(self):
@@ -130,12 +130,12 @@ class CustomData:
                 "meal": [self.meal],
                 "country": [self.country],
                 "market_segment": [self.market_segment],
-                "distribution_channel": [self.distribution_channel],
+                # "distribution_channel": [self.distribution_channel],
                 "reserved_room_type": [self.reserved_room_type],
                 "assigned_room_type": [self.assigned_room_type],
                 "deposit_type": [self.deposit_type],
                 "customer_type": [self.customer_type],
-                "reservation_status": [self.reservation_status],
+                # "reservation_status": [self.reservation_status],
 
             }
 

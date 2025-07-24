@@ -41,12 +41,12 @@ def predict_datapoint():
             meal = request.form.get('meal'),
             country = request.form.get('country'),
             market_segment = request.form.get('market_segment'),
-            distribution_channel = request.form.get('distribution_channel'),
+            # distribution_channel = request.form.get('distribution_channel'),
             reserved_room_type = request.form.get('reserved_room_type'),
             assigned_room_type = request.form.get('assigned_room_type'),
             deposit_type = request.form.get('deposit_type'),
             customer_type = request.form.get('customer_type'),
-            reservation_status = request.form.get('reservation_status'),
+            # reservation_status = request.form.get('reservation_status'),
 
 
         )

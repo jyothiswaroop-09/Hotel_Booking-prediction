@@ -46,12 +46,12 @@ class DataTransformation:
                                  "previous_cancellations","agent","days_in_waiting_list",
                                  "adr","required_car_parking_spaces"]
             categorical_columns = [
-                "hotel","arrival_date_year",
+                "hotel",
                 "arrival_date_month",
                 "meal",
                 "country",
-                "market_segment","distribution_channel","reserved_room_type","assigned_room_type",
-                "deposit_type","customer_type","reservation_status"]
+                "market_segment","reserved_room_type","assigned_room_type",
+                "deposit_type","customer_type",]
 
             num_pipeline = Pipeline(
                 steps=[
@@ -101,7 +101,7 @@ class DataTransformation:
             # print(test_df[["children", "babies", "total_kids"]].head())
 
             cols_to_drop = ["previous_bookings_not_canceled", "company","reservation_status_date","total_of_special_requests"
-                            ,"arrival_date_week_number","booking_changes","children","babies"]
+                            ,"arrival_date_week_number","booking_changes","children","babies","distribution_channel","reservation_status"]
             train_df.drop(columns=cols_to_drop,axis=1, inplace=True, errors='ignore')
             test_df.drop(columns=cols_to_drop,axis=1, inplace=True, errors='ignore')
             
