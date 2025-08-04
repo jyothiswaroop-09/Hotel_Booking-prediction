@@ -1,17 +1,16 @@
 <html>
   <body>
     <head>
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-
-
-    <div class="login">
+  <meta charset="UTF-8">
+  <title>Hotel Booking Cancellation Predictor</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+ 
+    <form class="form-container" action="{{ url_for('predict_datapoint') }}" method="post">
       <h1>Hotel Booking Cancellation Predictor</h1>
 
       <form action="{{ url_for('predict_datapoint') }}" method="post">
-        <h1>
-          <legend>Enter Booking Information</legend>
-        </h1>
-
+      
         <div class="mb-3">
           <label class="form-label">Hotel Type</label>
           <select class="form-control" name="hotel" required>
@@ -241,12 +240,16 @@
           </select>
         </div> -->
 
-        <div class="mb-3">
-          <input class="btn btn-primary" type="submit" value="Predict Cancellation" />
-        </div>
-      </form>
-      <h2>is_Canceled: {{ '✅ Yes' if results == 1 else '❌ No' }}</h2>
-    </div>
+       <div class="mb-3">
+  <input class="btn btn-primary" type="submit" value="Predict Cancellation" />
+</div>
+
+{% if results is not none %}
+  <div class="result-box">
+    <h2>is_Canceled: {{ '✅ Yes' if results == 1 else '❌ No' }}</h2>
+  </div>
+{% endif %}
+
   </body>
   </head>
 </html>
